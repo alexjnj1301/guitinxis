@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.recettescuisine.RegistrationViewModele" />
+            type="com.example.guitinxis.RegistrationViewModele" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

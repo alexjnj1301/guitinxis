@@ -1,4 +1,4 @@
-package com.example.recettescuisine
+package com.example.guitinxis
 
 import org.junit.Test
 

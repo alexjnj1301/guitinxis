@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.recettescuisine'
+    namespace 'com.example.guitinxis'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.recettescuisine"
+        applicationId "com.example.guitinxis"
         minSdk 31
         targetSdk 32
         versionCode 1

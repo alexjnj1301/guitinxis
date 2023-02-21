@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "679240600135",
-    "project_id": "androidrecettescuisine",
-    "storage_bucket": "androidrecettescuisine.appspot.com"
+    "project_number": "644893373546",
+    "project_id": "guitinxis",
+    "storage_bucket": "guitinxis.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:679240600135:android:067594e48975e9bb83bf62",
+        "mobilesdk_app_id": "1:644893373546:android:44b7cce478fb30b7f74613",
         "android_client_info": {
-          "package_name": "com.example.recettescuisine"
+          "package_name": "com.example.guitinxis"
         }
       },
       "oauth_client": [
         {
-          "client_id": "679240600135-n4nad39mo5o4kr2o25h0s91lrmr4nopn.apps.googleusercontent.com",
+          "client_id": "644893373546-0m1imvb7rhd46uetcflo8a6idfrjmugk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDlJlgsLu9YcXlbTIaRqPKDRxcrMqXJ4ME"
+          "current_key": "AIzaSyAtJLSCj5OtmM37uIx01yQ5XniCfqaULX8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "679240600135-n4nad39mo5o4kr2o25h0s91lrmr4nopn.apps.googleusercontent.com",
+              "client_id": "644893373546-0m1imvb7rhd46uetcflo8a6idfrjmugk.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
