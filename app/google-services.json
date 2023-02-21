@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "679240600135",
+    "project_id": "androidrecettescuisine",
+    "storage_bucket": "androidrecettescuisine.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679240600135:android:067594e48975e9bb83bf62",
+        "android_client_info": {
+          "package_name": "com.example.recettescuisine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679240600135-n4nad39mo5o4kr2o25h0s91lrmr4nopn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlJlgsLu9YcXlbTIaRqPKDRxcrMqXJ4ME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679240600135-n4nad39mo5o4kr2o25h0s91lrmr4nopn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
