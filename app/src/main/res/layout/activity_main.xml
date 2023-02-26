@@ -52,7 +52,7 @@
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/white"
         android:shadowColor="@color/white"
-        android:text="Sign in"
+        android:text="Sign up"
         android:textColor="#878787"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

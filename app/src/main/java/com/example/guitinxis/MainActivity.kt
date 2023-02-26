@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth;
 
-        val intent: Intent = Intent(this, RegisterActivity::class.java)
+        val signUp: Intent = Intent(this, RegisterActivity::class.java)
 
         mail = findViewById(R.id.editTextTextEmailAddress);
         password = findViewById(R.id.editTextTextPassword2);
@@ -35,16 +35,12 @@ class MainActivity : AppCompatActivity() {
 
         connexion.setOnClickListener {
             var currentMail : String = mail.text.toString();
-            var currentPassord : String = password.text.toString();
+            var currentPassword : String = password.text.toString();
 
-            signIn(currentMail, currentPassord);
+            signIn(currentMail, currentPassword);
         }
         inscription.setOnClickListener {
-            var currentMail : String = mail.text.toString();
-            var currentPassord : String = password.text.toString();
-
-            //createAccount(currentMail, currentPassord);
-            startActivity(intent)
+            startActivity(signUp)
         }
     }
 
@@ -53,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if(currentUser != null){
-            reload();
+            reload()
         }
     }
 
@@ -64,13 +60,13 @@ class MainActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success")
-                    Toast.makeText(baseContext, "Authentication successed.",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "Authentication successed",Toast.LENGTH_SHORT).show()
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, task.exception?.message.toString(),Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
             }

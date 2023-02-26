@@ -5,7 +5,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -20,6 +22,8 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var viewModel : RegistrationViewModele
     private lateinit var homeBouton : Button
     private lateinit var registerBouton : Button
+    private lateinit var Email: EditText
+    private lateinit var Pwd: EditText
     private lateinit var auth: FirebaseAuth
 
     @SuppressLint("MissingInflatedId")
@@ -37,15 +41,19 @@ class RegisterActivity : AppCompatActivity() {
 
         homeBouton = findViewById(R.id.buttonHome)
         registerBouton = findViewById(R.id.buttonRegister)
+        Email = findViewById(R.id.editTextTextEmailAddress2)
+        Pwd = findViewById(R.id.editTextTextPassword)
 
         homeBouton.setOnClickListener {
             startActivity(intent)
         }
 
         registerBouton.setOnClickListener{
-            createAccount(binding.editTextTextEmailAddress2.text.toString(), binding.editTextTextPassword.text.toString())
-        }
+            var currentEmail: String = Email.text.toString()
+            var currentPwd: String = Pwd.text.toString()
 
+            createAccount(currentEmail, currentPwd)
+        }
     }
 
     private fun createAccount(email: String, password: String) {
@@ -61,7 +69,7 @@ class RegisterActivity : AppCompatActivity() {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(RegisterActivity.TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Creation failed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, task.exception?.message.toString(), Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
             }
