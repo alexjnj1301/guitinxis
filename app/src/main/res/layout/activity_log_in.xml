@@ -3,36 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".registration.RegisterActivity">
+    tools:context=".signIn.logInActivity">
     <data>
         <variable
             name="viewModel"
-            type="com.example.guitinxis.registration.RegistrationViewModele" />
+            type="com.example.guitinxis.signIn.SignInViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/buttonHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:text="Home"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/titleRegistration"
+            android:id="@+id/titleConnexion"
             android:layout_width="291dp"
             android:layout_height="55dp"
             android:layout_row="0"
             android:layout_column="5"
             android:layout_marginTop="100dp"
-            android:text="Registration"
+            android:text="Log In"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="34sp"
@@ -42,26 +32,22 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress2"
+            android:id="@+id/editTextEmailAddressConnexion"
             android:layout_width="340dp"
             android:layout_height="50dp"
-            android:layout_marginTop="140dp"
-            android:autofillHints=""
             android:ems="10"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:minHeight="48dp"
             android:text="@={viewModel.email}"
-            android:textAlignment="viewStart"
-
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/titleRegistration"
-            tools:hint="Email" />
+            app:layout_constraintTop_toTopOf="@id/titleConnexion"
+            app:layout_constraintVertical_bias="0.223" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/editTextPasswordConnexion"
             android:layout_width="340dp"
             android:layout_height="50dp"
             android:layout_marginTop="100dp"
@@ -69,22 +55,38 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:text="@={viewModel.password}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/editTextTextEmailAddress2"
-            tools:hint="Password" />
+            app:layout_constraintTop_toTopOf="@+id/editTextEmailAddressConnexion"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/buttonRegister"
+            android:id="@+id/buttonConnexion"
             android:layout_width="190dp"
             android:layout_height="60dp"
             android:layout_marginTop="100dp"
-            android:text="Create Account"
+            android:text="Log In"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/editTextTextPassword" />
+            app:layout_constraintTop_toTopOf="@+id/editTextPasswordConnexion"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/buttonSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/white"
+            android:shadowColor="@color/white"
+            android:text="Sign up"
+            android:textColor="#878787"
+            app:layout_constraintEnd_toEndOf="@+id/buttonConnexion"
+            app:layout_constraintStart_toStartOf="@+id/buttonConnexion"
+            app:layout_constraintTop_toBottomOf="@+id/buttonConnexion" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,16 +1,17 @@
-package com.example.guitinxis
+package com.example.guitinxis.registration
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.example.guitinxis.MainActivity
+import com.example.guitinxis.R
 import com.example.guitinxis.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -35,7 +36,9 @@ class RegisterActivity : AppCompatActivity() {
 
         val intent: Intent = Intent(this, MainActivity::class.java)
 
-        val binding : ActivityRegisterBinding = DataBindingUtil.setContentView(this, R.layout.activity_register)
+        val binding : ActivityRegisterBinding = DataBindingUtil.setContentView(this,
+            R.layout.activity_register
+        )
         binding.viewModel = this.viewModel
         binding.lifecycleOwner = this
 
@@ -62,13 +65,13 @@ class RegisterActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d(RegisterActivity.TAG, "createUserWithEmail:success")
+                    Log.d(TAG, "createUserWithEmail:success")
                     Toast.makeText(baseContext, "Creation successed.", Toast.LENGTH_SHORT).show()
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w(RegisterActivity.TAG, "createUserWithEmail:failure", task.exception)
+                    Log.w(TAG, "createUserWithEmail:failure", task.exception)
                     Toast.makeText(baseContext, task.exception?.message.toString(), Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
