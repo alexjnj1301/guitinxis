@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".signIn.logInActivity">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.guitinxis.signIn.SignInViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/titleConnexion"
+            android:layout_width="291dp"
+            android:layout_height="55dp"
+            android:layout_row="0"
+            android:layout_column="5"
+            android:layout_marginTop="100dp"
+            android:text="Log In"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextEmailAddressConnexion"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:text="@={viewModel.email}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/titleConnexion"
+            app:layout_constraintVertical_bias="0.223" />
+
+        <EditText
+            android:id="@+id/editTextPasswordConnexion"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="100dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:text="@={viewModel.password}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextEmailAddressConnexion"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/buttonConnexion"
+            android:layout_width="190dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="100dp"
+            android:text="Log In"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextPasswordConnexion"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/buttonSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/white"
+            android:shadowColor="@color/white"
+            android:text="Sign up"
+            android:textColor="#878787"
+            app:layout_constraintEnd_toEndOf="@+id/buttonConnexion"
+            app:layout_constraintStart_toStartOf="@+id/buttonConnexion"
+            app:layout_constraintTop_toBottomOf="@+id/buttonConnexion" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

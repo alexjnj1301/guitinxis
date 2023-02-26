@@ -18,7 +18,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".RegisterActivity"
+            android:name=".signIn.logInActivity"
+            android:exported="false"
+            android:label="@string/title_activity_log_in"
+            android:theme="@style/Theme.RecettesCuisine.NoActionBar" />
+        <activity
+            android:name=".registration.RegisterActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

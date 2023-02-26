@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".RegisterActivity">
+    tools:context=".registration.RegisterActivity">
     <data>
         <variable
             name="viewModel"
-            type="com.example.guitinxis.RegistrationViewModele" />
+            type="com.example.guitinxis.registration.RegistrationViewModele" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,17 +16,24 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/buttonHome"
+            android:id="@+id/buttonLogInRegister"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"
             android:layout_column="0"
-            android:text="Home"
+            android:layout_marginTop="75dp"
+            android:backgroundTint="@color/white"
+            android:shadowColor="@color/white"
+            android:text="Already have an account ? Sign in now"
+            android:textColor="#636363"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/buttonRegister"
+            app:rippleColor="@color/white" />
 
         <TextView
-            android:id="@+id/textViewTitle"
+            android:id="@+id/titleRegistration"
             android:layout_width="291dp"
             android:layout_height="55dp"
             android:layout_row="0"
@@ -57,7 +64,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/textViewTitle"
+            app:layout_constraintTop_toTopOf="@id/titleRegistration"
             tools:hint="Email" />
 
         <EditText
@@ -75,16 +82,31 @@
             app:layout_constraintTop_toTopOf="@id/editTextTextEmailAddress2"
             tools:hint="Password" />
 
+        <EditText
+            android:id="@+id/editTextPasswordConfirm"
+            android:layout_width="340dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:text="@={viewModel.password}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+            tools:hint="Confirm Password" />
+
         <Button
             android:id="@+id/buttonRegister"
-            android:layout_width="196dp"
-            android:layout_height="59dp"
+            android:layout_width="190dp"
+            android:layout_height="60dp"
             android:layout_marginTop="100dp"
             android:text="Create Account"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/editTextTextPassword" />
+            app:layout_constraintTop_toTopOf="@+id/editTextPasswordConfirm" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

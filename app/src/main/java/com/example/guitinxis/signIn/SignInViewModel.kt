@@ -1,8 +1,8 @@
-package com.example.guitinxis
+package com.example.guitinxis.signIn
 
 import androidx.lifecycle.ViewModel
 
-class RegistrationViewModele : ViewModel(){
+class SignInViewModel: ViewModel() {
     var email: String = ""
     var password: String = ""
 }
