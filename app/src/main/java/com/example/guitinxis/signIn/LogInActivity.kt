@@ -8,7 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.guitinxis.MainActivity
+import com.example.guitinxis.mainPage.MainActivity
 import com.example.guitinxis.R
 import com.example.guitinxis.registration.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
