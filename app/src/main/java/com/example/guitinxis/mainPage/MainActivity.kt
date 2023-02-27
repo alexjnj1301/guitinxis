@@ -20,18 +20,18 @@ import com.example.guitinxis.recipeDetails.RecipeDetailsActivity
 class MainActivity : AppCompatActivity() {
 
     private lateinit var apiRepo: ApiRepository
-    private lateinit var recyclerView: RecyclerView
+    //private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         apiRepo = ApiRepository()
-        recyclerView = findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        apiRepo.getRandomRecipes(10) { recipes ->
+        apiRepo.getRandomRecipes(5) { recipes ->
             runOnUiThread {
+                val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+                recyclerView.layoutManager = LinearLayoutManager(this)
                 recyclerView.adapter = RecipeAdapter(recipes)
             }
         }
