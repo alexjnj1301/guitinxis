@@ -60,21 +60,10 @@ class RecipeDetailsActivity : AppCompatActivity() {
     }
 
     private fun displayRecipeDetails(recipe: Recipe) {
-        // Update UI with recipe details
-        // Example: update recipe title
-        supportActionBar?.title = recipe.title
-
-        // Example: update recipe image
-        val imageView = findViewById<ImageView>(R.id.recipe_image)
-        //Picasso.with().load(recipe.image).into(imageView)
-
-        // Example: update recipe ingredients
-        //val ingredientsTextView = findViewById<TextView>(R.id.recipe_ingredients)
-        //val ingredientsString = recipe.ingredients.joinToString("\n")
-        //ingredientsTextView.text = ingredientsString
-
-        // Example: update recipe instructions
-        val instructionsTextView = findViewById<TextView>(R.id.recipe_instructions)
-        instructionsTextView.text = recipe.instructions
+// Get recipe details from API
+        getRecipeDetails(recipeId) { recipe ->
+            // Update UI with recipe details
+            displayRecipeDetails(recipe)
+        }
     }
 }
