@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 .into(holder.imageView)
             holder.itemView.setOnClickListener {
                 val intent = Intent(this@MainActivity, RecipeDetailsActivity::class.java)
-                intent.putExtra("recipeId", recipe.id)
+                intent.putExtra("recipeId", recipe.id.toString())
                 startActivity(intent)
             }
         }

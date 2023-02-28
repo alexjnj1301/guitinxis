@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso
 
 class RecipeDetailsActivity : AppCompatActivity() {
 
-    val apiKey = "d6c61ad93c444a01a0f0336d4c84faaa"
+    val apiKey = "89479cb8f9ac466d9c2335d3c90a6d9d"
     val baseUrl = "https://api.spoonacular.com"
 
     private val client = OkHttpClient()
