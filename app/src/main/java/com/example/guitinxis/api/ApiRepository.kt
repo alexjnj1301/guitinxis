@@ -6,7 +6,6 @@ import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
 
-
 class ApiRepository {
     val apiKey = "3373002c024c4c41a6fdef3b77c37199"
     val basUrl = "https://api.spoonacular.com"
