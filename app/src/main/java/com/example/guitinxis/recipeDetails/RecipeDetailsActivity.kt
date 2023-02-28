@@ -1,4 +1,5 @@
 package com.example.guitinxis.recipeDetails
+
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,6 +11,9 @@ import com.example.guitinxis.api.composants.Recipe
 import okhttp3.*
 import java.io.IOException
 import org.jsoup.Jsoup
+import android.widget.Button
+import android.content.Intent
+import android.view.View
 
 class RecipeDetailsActivity : AppCompatActivity() {
 
@@ -18,17 +22,18 @@ class RecipeDetailsActivity : AppCompatActivity() {
 
     private val client = OkHttpClient()
     private lateinit var recipeId: String
-
+    private lateinit var button: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_details)
+
+        findViewById<Button>(R.id.shareButton).visibility = View.VISIBLE
 
         recipeId = intent.getStringExtra("recipeId") ?: ""
         if (recipeId.isEmpty()) {
             Toast.makeText(this, "No recipe ID found", Toast.LENGTH_SHORT).show()
             finish()
         }
-
         // Get recipe details from API
         getRecipeDetails(recipeId) { recipe ->
             // Update UI with recipe details
@@ -92,6 +97,18 @@ class RecipeDetailsActivity : AppCompatActivity() {
             } else if (recipe.vegan){
                 Glide.with(this).load("https://www.shutterstock.com/image-vector/icon-vegan-food-260nw-778394854.jpg").into(imageVeg)
             }
+        }
+
+        button = findViewById(R.id.shareButton)
+        button.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "text/plain"
+            intent.putExtra(
+                Intent.EXTRA_TEXT,
+                "Salut, j'ai trouvé la recette ${recipe.title} sur guitinxis ! Suis les instructions pour te régaler : ${recipe.instructions}"
+            )
+            val chooser = Intent.createChooser(intent, "Partager cette recette")
+            startActivity(chooser)
         }
     }
 }
