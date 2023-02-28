@@ -76,6 +76,11 @@ class RecipeDetailsActivity : AppCompatActivity() {
             val instructionsHtml = recipe.instructions
             val instructionsText = Jsoup.parse(instructionsHtml).text()
             instructionsTextView.text = instructionsText
+
+            val ingredientsTextView = findViewById<TextView>(R.id.ingredientsTextView)
+            val ingredientsList = recipe.extendedIngredients.map { it.nameClean } // extraire les noms des ingrédients
+            val ingredientsString = ingredientsList.joinToString("\n") // convertir la liste en une chaîne de caractères avec un saut de ligne entre chaque ingrédient
+            ingredientsTextView.text = ingredientsString
         }
     }
 }
