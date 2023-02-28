@@ -11,6 +11,7 @@ import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
 import com.squareup.picasso.Picasso
+import org.jsoup.Jsoup
 
 class RecipeDetailsActivity : AppCompatActivity() {
 
@@ -70,6 +71,11 @@ class RecipeDetailsActivity : AppCompatActivity() {
             // Afficher le titre de la recette
             val titleTextView = findViewById<TextView>(R.id.nameTextView)
             titleTextView.text = recipe.title
+
+            val instructionsTextView = findViewById<TextView>(R.id.instructionsTextView)
+            val instructionsHtml = recipe.instructions
+            val instructionsText = Jsoup.parse(instructionsHtml).text()
+            instructionsTextView.text = instructionsText
         }
     }
 }
