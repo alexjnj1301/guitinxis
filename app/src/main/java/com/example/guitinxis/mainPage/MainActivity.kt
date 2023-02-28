@@ -42,27 +42,24 @@ class MainActivity : AppCompatActivity() {
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val nameTextView: TextView = view.findViewById(R.id.nameTextView)
             val imageView: ImageView = view.findViewById(R.id.imageView)
-            val cardView: RecyclerView = view.findViewById(R.id.recyclerView)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.activity_main, parent, false)
+                .inflate(R.layout.activity_recipe_details, parent, false)
             return ViewHolder(view)
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val recipe = recipes[position]
-            holder.nameTextView.text = recipe.sourceName
+            holder.nameTextView.text = recipe.title
             Glide.with(this@MainActivity)
                 .load(recipe.image)
                 .into(holder.imageView)
-            holder.cardView.setOnClickListener {
-                apiRepo.getRecipeById(recipe.id) { recipeDetails ->
-                    val intent = Intent(this@MainActivity, RecipeDetailsActivity::class.java)
-                    //intent.putExtra("recipe", recipeDetails)
-                    startActivity(intent)
-                }
+            holder.itemView.setOnClickListener {
+                val intent = Intent(this@MainActivity, RecipeDetailsActivity::class.java)
+                intent.putExtra("recipeId", recipe.id)
+                startActivity(intent)
             }
         }
 
