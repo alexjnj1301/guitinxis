@@ -4,20 +4,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.guitinxis.R
 import com.example.guitinxis.api.composants.Recipe
 import okhttp3.*
-import org.json.JSONObject
 import java.io.IOException
-import com.squareup.picasso.Picasso
+import org.jsoup.Jsoup
 
 class RecipeDetailsActivity : AppCompatActivity() {
 
-    val apiKey = "89479cb8f9ac466d9c2335d3c90a6d9d"
+    val apiKey = "3d6c4cd8322646b2b0e876693245bf3a"
     val baseUrl = "https://api.spoonacular.com"
 
     private val client = OkHttpClient()
-    private var json = JSONObject()
     private lateinit var recipeId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,10 +59,29 @@ class RecipeDetailsActivity : AppCompatActivity() {
     }
 
     private fun displayRecipeDetails(recipe: Recipe) {
-// Get recipe details from API
-        getRecipeDetails(recipeId) { recipe ->
-            // Update UI with recipe details
-            displayRecipeDetails(recipe)
+        runOnUiThread {
+            // Afficher l'image de la recette
+            val recipeImageView = findViewById<ImageView>(R.id.imageView)
+            Glide.with(this).load(recipe.image).into(recipeImageView)
+
+
+            // Afficher le titre de la recette
+            val titleTextView = findViewById<TextView>(R.id.nameTextView)
+            titleTextView.text = recipe.title
+
+            val instructionsTextView = findViewById<TextView>(R.id.instructionsTextView)
+            val instructionsHtml = recipe.instructions
+            val instructionsText = Jsoup.parse(instructionsHtml).text()
+            instructionsTextView.text = instructionsText
+
+            val ingredientsTextView = findViewById<TextView>(R.id.ingredientsTextView)
+            val ingredientsString = recipe.extendedIngredients.joinToString(separator = "\n") {
+                "${it.amount} ${it.unit} ${it.name}"
+            }
+            ingredientsTextView.text = ingredientsString
+
+            val ingredientTitleTextView = findViewById<TextView>(R.id.ingredientTitleTextView)
+            ingredientTitleTextView.text = "INGREDIENTS"
         }
     }
 }
