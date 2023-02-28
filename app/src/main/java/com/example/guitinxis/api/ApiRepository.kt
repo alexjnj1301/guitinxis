@@ -8,7 +8,7 @@ import java.io.IOException
 
 
 class ApiRepository {
-    val apiKey = "89479cb8f9ac466d9c2335d3c90a6d9d"
+    val apiKey = "3d6c4cd8322646b2b0e876693245bf3a"
     val basUrl = "https://api.spoonacular.com"
 
     private val client = OkHttpClient()
