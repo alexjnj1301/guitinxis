@@ -1,13 +1,6 @@
 package com.example.guitinxis.api.composants
 import com.google.gson.Gson
 
-
-
-
-// To parse the JSON, install Gson and do:
-//
-//   val Recipe = Recipe.fromJson(jsonString)
-
 data class Recipe (
     val vegetarian: Boolean,
     val vegan: Boolean,
@@ -49,10 +42,8 @@ data class Recipe (
 
     val spoonacularSourceURL: String
 ) {
-    public fun toJson() = Gson().toJson(this)
-
     companion object {
-        public fun fromJson(json: String) = Gson().fromJson(json, Recipe::class.java)
+        fun fromJson(json: String) = Gson().fromJson(json, Recipe::class.java)
     }
 }
 

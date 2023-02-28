@@ -33,6 +33,14 @@
             android:padding="16dp" />
 
         <TextView
+            android:id="@+id/ingredientTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/ingredientsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -8,9 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.guitinxis.R
 import com.example.guitinxis.api.composants.Recipe
 import okhttp3.*
-import org.json.JSONObject
 import java.io.IOException
-import com.squareup.picasso.Picasso
 import org.jsoup.Jsoup
 
 class RecipeDetailsActivity : AppCompatActivity() {
@@ -19,7 +17,6 @@ class RecipeDetailsActivity : AppCompatActivity() {
     val baseUrl = "https://api.spoonacular.com"
 
     private val client = OkHttpClient()
-    private var json = JSONObject()
     private lateinit var recipeId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,9 +75,13 @@ class RecipeDetailsActivity : AppCompatActivity() {
             instructionsTextView.text = instructionsText
 
             val ingredientsTextView = findViewById<TextView>(R.id.ingredientsTextView)
-            val ingredientsList = recipe.extendedIngredients.map { it.nameClean } // extraire les noms des ingrédients
-            val ingredientsString = ingredientsList.joinToString("\n") // convertir la liste en une chaîne de caractères avec un saut de ligne entre chaque ingrédient
+            val ingredientsString = recipe.extendedIngredients.joinToString(separator = "\n") {
+                "${it.amount} ${it.unit} ${it.name}"
+            }
             ingredientsTextView.text = ingredientsString
+
+            val ingredientTitleTextView = findViewById<TextView>(R.id.ingredientTitleTextView)
+            ingredientTitleTextView.text = "INGREDIENTS"
         }
     }
 }
