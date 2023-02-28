@@ -20,7 +20,6 @@ import com.example.guitinxis.recipeDetails.RecipeDetailsActivity
 class MainActivity : AppCompatActivity() {
 
     private lateinit var apiRepo: ApiRepository
-    //private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
