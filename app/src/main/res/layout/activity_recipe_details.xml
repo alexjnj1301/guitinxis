@@ -18,6 +18,14 @@
             android:layout_height="200dp"
             android:scaleType="centerCrop" />
 
+        <Button
+            android:id="@+id/shareButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Partager"
+            android:visibility="invisible"/>
+
         <TextView
             android:id="@+id/nameTextView"
             android:layout_width="match_parent"
