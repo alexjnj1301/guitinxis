@@ -13,7 +13,7 @@ import org.jsoup.Jsoup
 
 class RecipeDetailsActivity : AppCompatActivity() {
 
-    val apiKey = "3d6c4cd8322646b2b0e876693245bf3a"
+    val apiKey = "3373002c024c4c41a6fdef3b77c37199"
     val baseUrl = "https://api.spoonacular.com"
 
     private val client = OkHttpClient()
@@ -60,12 +60,9 @@ class RecipeDetailsActivity : AppCompatActivity() {
 
     private fun displayRecipeDetails(recipe: Recipe) {
         runOnUiThread {
-            // Afficher l'image de la recette
             val recipeImageView = findViewById<ImageView>(R.id.imageView)
             Glide.with(this).load(recipe.image).into(recipeImageView)
 
-
-            // Afficher le titre de la recette
             val titleTextView = findViewById<TextView>(R.id.nameTextView)
             titleTextView.text = recipe.title
 
@@ -74,14 +71,27 @@ class RecipeDetailsActivity : AppCompatActivity() {
             val instructionsText = Jsoup.parse(instructionsHtml).text()
             instructionsTextView.text = instructionsText
 
+            val ingredientTitleTextView = findViewById<TextView>(R.id.ingredientTitleTextView)
+            ingredientTitleTextView.text = "INGREDIENTS"
+
             val ingredientsTextView = findViewById<TextView>(R.id.ingredientsTextView)
             val ingredientsString = recipe.extendedIngredients.joinToString(separator = "\n") {
                 "${it.amount} ${it.unit} ${it.name}"
             }
             ingredientsTextView.text = ingredientsString
 
-            val ingredientTitleTextView = findViewById<TextView>(R.id.ingredientTitleTextView)
-            ingredientTitleTextView.text = "INGREDIENTS"
+            val preparationTime = findViewById<TextView>(R.id.preparationTimeTextView)
+            preparationTime.text = "Preparation time: ${recipe.readyInMinutes} minutes"
+
+            val recipeURL = findViewById<TextView>(R.id.recipeURLTextView)
+            recipeURL.text = "Recipe URL: ${recipe.sourceURL}"
+
+            val imageVeg = findViewById<ImageView>(R.id.imageViewVeg)
+            if (recipe.vegetarian) {
+                Glide.with(this).load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIHRGgBuhriFmjyi3J-QLbty-66J-mhoQefw&usqp=CAU").into(imageVeg)
+            } else if (recipe.vegan){
+                Glide.with(this).load("https://www.shutterstock.com/image-vector/icon-vegan-food-260nw-778394854.jpg").into(imageVeg)
+            }
         }
     }
 }
