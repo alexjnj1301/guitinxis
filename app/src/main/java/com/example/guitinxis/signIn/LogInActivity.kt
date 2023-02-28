@@ -8,7 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.guitinxis.MainActivity
+import com.example.guitinxis.mainPage.MainActivity
 import com.example.guitinxis.R
 import com.example.guitinxis.registration.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -33,7 +33,6 @@ class logInActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth;
         viewModel = ViewModelProvider(this).get(SignInViewModel::class.java)
-
 
         signUp = Intent(this, RegisterActivity::class.java)
         home = Intent(this, MainActivity::class.java)
@@ -64,24 +63,28 @@ class logInActivity : AppCompatActivity() {
     }
 
     private fun signIn(email: String, password: String) {
-        // [START sign_in_with_email]
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithEmail:success")
-                    Toast.makeText(baseContext, "Authentication successed", Toast.LENGTH_SHORT).show()
-                    val user = auth.currentUser
-                    updateUI(user)
-                    startActivity(home)
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, task.exception?.message.toString(), Toast.LENGTH_SHORT).show()
-                    updateUI(null)
+        if (!email.isEmpty() && !password.isEmpty()) {
+            // [START sign_in_with_email]
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "signInWithEmail:success")
+                        Toast.makeText(baseContext, "Authentication successed", Toast.LENGTH_SHORT).show()
+                        val user = auth.currentUser
+                        updateUI(user)
+                        startActivity(home)
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "signInWithEmail:failure", task.exception)
+                        Toast.makeText(baseContext, task.exception?.message.toString(), Toast.LENGTH_SHORT).show()
+                        updateUI(null)
+                    }
                 }
-            }
-        // [END sign_in_with_email]
+            // [END sign_in_with_email]
+        } else {
+            Toast.makeText(baseContext, "Please fill all the fields", Toast.LENGTH_SHORT).show()
+        }
     }
 
 
