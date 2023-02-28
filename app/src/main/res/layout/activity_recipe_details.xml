@@ -18,12 +18,12 @@
             android:layout_height="200dp"
             android:scaleType="centerCrop" />
 
-<<<<<<< HEAD
+
         <ImageView
             android:id="@+id/imageViewVeg"
             android:layout_width="50dp"
             android:layout_height="50dp" />
-=======
+
         <Button
             android:id="@+id/shareButton"
             android:layout_width="match_parent"
@@ -31,7 +31,6 @@
             android:layout_margin="8dp"
             android:text="Partager"
             android:visibility="invisible"/>
->>>>>>> main
 
         <TextView
             android:id="@+id/nameTextView"

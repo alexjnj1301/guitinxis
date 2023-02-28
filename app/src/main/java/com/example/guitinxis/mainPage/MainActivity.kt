@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         apiRepo = ApiRepository()
 
-        apiRepo.getRandomRecipes(10) { recipes ->
+        apiRepo.getRandomRecipes(20) { recipes ->
             runOnUiThread {
                 val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
                 recyclerView.layoutManager = LinearLayoutManager(this)
